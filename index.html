@@ -1,0 +1,41 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Audio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px 15px;
+    }
+    button {
+      font-size: 22px;
+      padding: 16px 28px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Listen to My Audio</h1>
+  <p>Audio automatically starts if your browser allows it.</p>
+  <audio id="audio" controls autoplay preload="auto">
+    <source src="audio.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
+  <p><button id="play">▶ Play Audio</button></p>
+  <script>
+    const audio = document.getElementById("audio");
+    document.getElementById("play").onclick = () => {
+      audio.play();
+    };
+    audio.play().catch(() => {
+      document.getElementById("play").textContent =
+        "▶ Tap to Play Audio";
+    });
+  </script>
+</body>
+</html>
